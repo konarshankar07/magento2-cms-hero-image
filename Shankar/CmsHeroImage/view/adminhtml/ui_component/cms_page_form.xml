@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-/**
-* Copyright © 2013-2017 Magento, Inc. All rights reserved.
-* See COPYING.txt for license details.
-*/
--->
+  ~ Copyright (c) 2019 Shankar Konar
+  -->
 <form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <fieldset name="general">
         <field name="cms_hero_image" sortOrder="30">

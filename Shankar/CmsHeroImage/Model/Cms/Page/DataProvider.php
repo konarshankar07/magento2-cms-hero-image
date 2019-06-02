@@ -1,9 +1,9 @@
 <?php
+/**
+ * Copyright (c) 2019 Shankar Konar
+ */
 
 namespace Shankar\CmsHeroImage\Model\Cms\Page;
-
-use Magento\Cms\Model\ResourceModel\Page\CollectionFactory;
-use Magento\Framework\App\Request\DataPersistorInterface;
 
 /**
  * Class DataProvider

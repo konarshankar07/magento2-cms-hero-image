@@ -1,14 +1,22 @@
 <?php
+/**
+ * Copyright (c) 2019 Shankar Konar
+ */
+
 namespace Shankar\CmsHeroImage\Controller\Adminhtml\Heroimage;
 
 use Magento\Framework\Controller\ResultFactory;
 
+/**
+ * Class Upload
+ * @package Shankar\CmsHeroImage\Controller\Adminhtml\Heroimage
+ */
 class Upload extends \Magento\Backend\App\Action
 {
     /**
      * Image uploader
      *
-     * @var \[Namespace]\[Module]\Model\ImageUploader
+     * @var \Magento\Catalog\Model\ImageUploader
      */
     protected $imageUploader;
 
@@ -24,6 +32,9 @@ class Upload extends \Magento\Backend\App\Action
         $this->imageUploader = $imageUploader;
     }
 
+    /**
+     * @return bool
+     */
     protected function _isAllowed()
     {
         return $this->_authorization->isAllowed('Shankar_CmsHeroImage::Heroimage');

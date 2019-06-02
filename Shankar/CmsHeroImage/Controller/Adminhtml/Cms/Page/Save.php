@@ -1,12 +1,18 @@
 <?php
-
+/**
+ * Copyright (c) 2019 Shankar Konar
+ */
 namespace Shankar\CmsHeroImage\Controller\Adminhtml\Cms\Page;
 
-use Magento\Backend\App\Action;
+use Magento\Cms\Controller\Adminhtml\Page\PostDataProcessor;
 use Magento\Cms\Model\Page;
 use Magento\Framework\App\Request\DataPersistorInterface;
 use Magento\Framework\Exception\LocalizedException;
 
+/**
+ * Class Save
+ * @package Shankar\CmsHeroImage\Controller\Adminhtml\Cms\Page
+ */
 class Save extends \Magento\Cms\Controller\Adminhtml\Page\Save
 {
     /**

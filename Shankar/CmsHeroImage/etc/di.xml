@@ -1,10 +1,14 @@
 <?xml version="1.0"?>
+<!--
+  ~ Copyright (c) 2019 Shankar Konar
+  -->
+
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <virtualType name="HeroImageUploader" type="Magento\Catalog\Model\ImageUploader"><!-- replace [entity] with your entity name -->
+    <virtualType name="HeroImageUploader" type="Magento\Catalog\Model\ImageUploader">
         <arguments>
             <argument name="baseTmpPath" xsi:type="string">cms/hero/tmp</argument>
             <argument name="basePath" xsi:type="string">cms/hero/image</argument>
-            <argument name="allowedExtensions" xsi:type="array"><!-- you can add here file extension restrictions -->
+            <argument name="allowedExtensions" xsi:type="array">
                 <item name="jpg" xsi:type="string">jpg</item>
                 <item name="jpeg" xsi:type="string">jpeg</item>
                 <item name="gif" xsi:type="string">gif</item>
@@ -14,7 +18,7 @@
     </virtualType>
     <type name="Shankar\CmsHeroImage\Controller\Adminhtml\Heroimage\Upload">
         <arguments>
-            <argument name="imageUploader" xsi:type="object">HeroImageUploader</argument><!-- again, replace [entity] with the name of your entity. Make sure it matches the name of the virtual type above. -->
+            <argument name="imageUploader" xsi:type="object">HeroImageUploader</argument>
         </arguments>
     </type>
 </config>
