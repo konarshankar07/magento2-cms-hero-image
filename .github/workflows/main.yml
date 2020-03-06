@@ -21,5 +21,10 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-    - name: Hello world action step
+  magento2_static_test:
+    runs-on: ubuntu-latest
+    name: Magento 2 static test
+    steps:
+    - name: Magento 2 static test
+      id: shankar
       uses: konarshankar07/magento2-static-test-action@v0.0.1-beta
