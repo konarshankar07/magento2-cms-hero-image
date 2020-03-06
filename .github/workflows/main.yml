@@ -27,4 +27,4 @@ jobs:
     steps:
     - name: Magento 2 static test
       id: shankar
-      uses: konarshankar07/magento2-static-test-action@v0.0.1-beta
+      uses: konarshankar07/magento2-static-test-action@master
