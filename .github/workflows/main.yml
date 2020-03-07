@@ -11,7 +11,7 @@ on:
     branches: [ master ]
 
 jobs:
-  Magento2 Static Test:
+  magento2_static_test:
 
     runs-on: ubuntu-latest
 
