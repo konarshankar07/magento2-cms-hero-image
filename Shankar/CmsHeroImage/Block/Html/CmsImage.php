@@ -23,9 +23,7 @@ class CmsImage extends Template
      */
     protected $_filesystem;
 
-    /**
-     * @var \Magento\Framework\Filesystem
-     */
+    
     protected $__storeManager;
 
     /**
