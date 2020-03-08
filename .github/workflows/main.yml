@@ -1,22 +1,15 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
-
-# Controls when the action will run. Triggers the workflow on push or pull request 
-# events but only for the master branch
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-
+name: Magento 2 Static Test Action
+on: [push, pull_request]
 jobs:
-  magento2_static_test:
-
+  build:
+    name: shankar/magento2-static-test-action
     runs-on: ubuntu-latest
-
     steps:
-        - uses: actions/checkout@v1
-        - uses: konarshankar07/magento2-static-test-action@master
-          name: Magento 2 static test
-          id: shankar
+      - name: Checkout Repo
+        uses: actions/checkout@master
+
+      - name: Magento 2 Static Test
+        uses: konarshankar07/magento2-static-test-action@master
+
