@@ -1,10 +1,9 @@
 <?xml version="1.0"?>
-<!--
-  ~ Copyright (c) 2019 Shankar Konar
-  -->
-
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <preference for="Magento\Cms\Controller\Adminhtml\Page\Save" type="Shankar\CmsHeroImage\Controller\Adminhtml\Cms\Page\Save" />
-    <preference for="Magento\Cms\Model\Page\DataProvider" type="Shankar\CmsHeroImage\Model\Cms\Page\DataProvider" />
-
+    <type name="Magento\Cms\Model\Page\DataProvider">
+        <plugin name="cmsPageDataProviderPlugin" type="Shankar\CmsHeroImage\Plugin\AfterGetData" />
+    </type>
+    <type name="Magento\Cms\Model\PageRepository">
+        <plugin name="cmsPageRepositoryPlugin" type="Shankar\CmsHeroImage\Plugin\BeforeSave" />
+    </type>
 </config>
