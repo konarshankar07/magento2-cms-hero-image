@@ -1,40 +1,34 @@
 <?php
-/**
- * Copyright (c) 2019 Shankar Konar
- */
-
 namespace Shankar\CmsHeroImage\Controller\Adminhtml\Heroimage;
 
+use Magento\Backend\App\Action;
+use Magento\Backend\App\Action\Context;
+use Magento\Framework\App\Action\HttpPostActionInterface;
+use Shankar\CmsHeroImage\Model\ImageUploader;
 use Magento\Framework\Controller\ResultFactory;
+use Magento\Framework\Controller\ResultInterface;
 
-/**
- * Class Upload
- * @package Shankar\CmsHeroImage\Controller\Adminhtml\Heroimage
- */
-class Upload extends \Magento\Backend\App\Action
+class Upload extends Action implements HttpPostActionInterface
 {
     /**
      * Image uploader
      *
-     * @var \Magento\Catalog\Model\ImageUploader
+     * @var ImageUploader
      */
     protected $imageUploader;
 
     /**
-     * @param \Magento\Backend\App\Action\Context $context
-     * @param \Magento\Catalog\Model\ImageUploader $imageUploader
+     * @param Context $context
+     * @param ImageUploader $imageUploader
      */
     public function __construct(
-        \Magento\Backend\App\Action\Context $context,
-        \Magento\Catalog\Model\ImageUploader $imageUploader
+        Context $context,
+        ImageUploader $imageUploader
     ) {
         parent::__construct($context);
         $this->imageUploader = $imageUploader;
     }
 
-    /**
-     * @return bool
-     */
     protected function _isAllowed()
     {
         return $this->_authorization->isAllowed('Shankar_CmsHeroImage::Heroimage');
@@ -42,25 +36,17 @@ class Upload extends \Magento\Backend\App\Action
     /**
      * Upload file controller action
      *
-     * @return \Magento\Framework\Controller\ResultInterface
+     * @return ResultInterface
      */
-    public function execute()
+    public function execute(): ResultInterface
     {
-        try {
-            $result = $this->imageUploader->saveFileToTmpDir('cms_hero_image');
+        $imageId = $this->_request->getParam('param_name', 'cms_hero_image');
 
-            $result['cookie'] = [
-                'name' => $this->_getSession()->getName(),
-                'value' => $this->_getSession()->getSessionId(),
-                'lifetime' => $this->_getSession()->getCookieLifetime(),
-                'path' => $this->_getSession()->getCookiePath(),
-                'domain' => $this->_getSession()->getCookieDomain(),
-            ];
+        try {
+            $result = $this->imageUploader->saveFileToTmpDir($imageId);
         } catch (\Exception $e) {
-            $this->_objectManager->get('Psr\Log\LoggerInterface')->critical($e);
             $result = ['error' => $e->getMessage(), 'errorcode' => $e->getCode()];
         }
         return $this->resultFactory->create(ResultFactory::TYPE_JSON)->setData($result);
     }
 }
-?>
