@@ -10,7 +10,7 @@ use Magento\Store\Model\StoreManagerInterface;
 use Magento\Framework\View\Element\Block\ArgumentInterface;
 
 /**
- * Class GetHeroImage
+ * Class responsible for getting CMS hero image data
  */
 class GetHeroImage implements ArgumentInterface
 {
@@ -45,7 +45,7 @@ class GetHeroImage implements ArgumentInterface
      * @return string
      * @throws NoSuchEntityException
      */
-    public function getCmsImage()
+    public function getCmsImage() :string
     {
         $media_url = $this->storeManager->getStore()->getBaseUrl(UrlInterface::URL_TYPE_MEDIA);
         $imageUrl = $media_url . "cms/hero/image/" . $this->page->getCmsHeroImage();
@@ -53,9 +53,9 @@ class GetHeroImage implements ArgumentInterface
     }
 
     /**
-     * @return bool
+     * @return null|string
      */
-    public function isCmsImage()
+    public function isCmsImage() :?string
     {
         return $this->page->getCmsHeroImage();
     }
