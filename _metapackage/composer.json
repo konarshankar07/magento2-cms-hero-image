@@ -1,0 +1,8 @@
+{
+    "name": "shankar/cms-hero-image",
+    "description": "CMS hero image",
+    "type": "metapackage",
+    "require": {
+        "shankar/module-cms-hero-image": "*"
+    }
+}

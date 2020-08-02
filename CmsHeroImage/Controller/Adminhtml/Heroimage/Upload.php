@@ -4,9 +4,9 @@ namespace Shankar\CmsHeroImage\Controller\Adminhtml\Heroimage;
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\App\Action\HttpPostActionInterface;
-use Shankar\CmsHeroImage\Model\ImageUploader;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\Controller\ResultInterface;
+use Shankar\CmsHeroImage\Model\ImageUploader;
 
 class Upload extends Action implements HttpPostActionInterface
 {

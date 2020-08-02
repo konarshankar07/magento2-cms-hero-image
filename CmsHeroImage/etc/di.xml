@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <virtualType name="Shankar\CmsHeroImage\HeroimageUpload" type="Shankar\CmsHeroImage\Model\ImageUploader">
         <arguments>
             <argument name="baseTmpPath" xsi:type="string">cms/hero/tmp</argument>

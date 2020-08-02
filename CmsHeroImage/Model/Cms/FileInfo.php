@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
 namespace Shankar\CmsHeroImage\Model\Cms;
 
 use Magento\Framework\App\Filesystem\DirectoryList;

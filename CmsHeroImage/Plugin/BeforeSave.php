@@ -4,8 +4,9 @@ namespace Shankar\CmsHeroImage\Plugin;
 
 use Magento\Cms\Api\Data\PageInterface;
 use Magento\Cms\Model\PageRepository;
-use Shankar\CmsHeroImage\Model\ImageUploader;
 use Psr\Log\LoggerInterface;
+use Shankar\CmsHeroImage\HeroimageUpload;
+use Shankar\CmsHeroImage\Model\ImageUploader;
 
 class BeforeSave
 {
@@ -19,11 +20,9 @@ class BeforeSave
      */
     private $_logger;
 
-
     public function __construct(
         LoggerInterface $logger
-    )
-    {
+    ) {
         $this->_logger = $logger;
     }
 
@@ -35,7 +34,6 @@ class BeforeSave
             $page->setCmsHeroImage($imageName);
         }
     }
-
 
     public function afterSave(PageRepository $subject, PageInterface $page)
     {
@@ -49,15 +47,13 @@ class BeforeSave
         }
     }
 
-
     private function getImageUploader()
     {
         if ($this->imageUploader === null) {
             $this->imageUploader = \Magento\Framework\App\ObjectManager::getInstance()
-                ->get(\Shankar\CmsHeroImage\HeroimageUpload::class);
+                ->get(HeroimageUpload::class);
         }
 
         return $this->imageUploader;
     }
-
 }

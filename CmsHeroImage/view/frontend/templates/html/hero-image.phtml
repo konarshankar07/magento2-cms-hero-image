@@ -1,0 +1,8 @@
+<?php
+/** @var Magento\Framework\View\Element\Template $block */
+/** @var Shankar\CmsHeroImage\ViewModel\Page\GetHeroImage $viewModel */
+$viewModel = $block->getViewModel();
+?>
+<?php if ($viewModel->isCmsImage()): ?>
+    <div class="cms-header-image" style="background-image:url( <?php echo $viewModel->getCmsImage(); ?>)"></div>
+<?php endif; ?>

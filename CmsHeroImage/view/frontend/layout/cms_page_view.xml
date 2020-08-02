@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="columns.top">
+            <block class="Magento\Framework\View\Element\Template"
+                   name="cms.hero.image"
+                   template="Shankar_CmsHeroImage::html/hero-image.phtml"
+                   before="page.main.title">
+                <arguments>
+                    <argument name="view_model"
+                              xsi:type="object">Shankar\CmsHeroImage\ViewModel\Page\GetHeroImage</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
