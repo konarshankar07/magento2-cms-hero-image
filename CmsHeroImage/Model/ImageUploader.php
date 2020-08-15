@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace Shankar\CmsHeroImage\Model;
 
 use Magento\Framework\App\Filesystem\DirectoryList;
@@ -123,7 +123,7 @@ class ImageUploader
      *
      * @return void
      */
-    public function setBaseTmpPath($baseTmpPath)
+    public function setBaseTmpPath($baseTmpPath) :void
     {
         $this->baseTmpPath = $baseTmpPath;
     }
@@ -135,7 +135,7 @@ class ImageUploader
      *
      * @return void
      */
-    public function setBasePath($basePath)
+    public function setBasePath($basePath) :void
     {
         $this->basePath = $basePath;
     }
@@ -147,7 +147,7 @@ class ImageUploader
      *
      * @return void
      */
-    public function setAllowedExtensions($allowedExtensions)
+    public function setAllowedExtensions($allowedExtensions) :void
     {
         $this->allowedExtensions = $allowedExtensions;
     }
@@ -157,7 +157,7 @@ class ImageUploader
      *
      * @return string
      */
-    public function getBaseTmpPath()
+    public function getBaseTmpPath() :string
     {
         return $this->baseTmpPath;
     }
@@ -167,7 +167,7 @@ class ImageUploader
      *
      * @return string
      */
-    public function getBasePath()
+    public function getBasePath() :string
     {
         return $this->basePath;
     }
@@ -177,7 +177,7 @@ class ImageUploader
      *
      * @return string[]
      */
-    public function getAllowedExtensions()
+    public function getAllowedExtensions() :array
     {
         return $this->allowedExtensions;
     }
@@ -190,7 +190,7 @@ class ImageUploader
      *
      * @return string
      */
-    public function getFilePath($path, $imageName)
+    public function getFilePath($path, $imageName) :string
     {
         return rtrim($path, '/') . '/' . ltrim($imageName, '/');
     }
@@ -204,7 +204,7 @@ class ImageUploader
      *
      * @throws LocalizedException
      */
-    public function moveFileFromTmp($imageName)
+    public function moveFileFromTmp($imageName) :string
     {
         $baseTmpPath = $this->getBaseTmpPath();
         $basePath = $this->getBasePath();
@@ -239,11 +239,11 @@ class ImageUploader
      *
      * @throws LocalizedException
      */
-    public function saveFileToTmpDir($fileId)
+    public function saveFileToTmpDir($fileId) :array
     {
         $baseTmpPath = $this->getBaseTmpPath();
 
-        /** @var Uploader $uploader */
+        /** @var \Magento\MediaStorage\Model\File\Uploader $uploader */
         $uploader = $this->uploaderFactory->create(['fileId' => $fileId]);
         $uploader->setAllowedExtensions($this->getAllowedExtensions());
         $uploader->setAllowRenameFiles(true);
@@ -285,3 +285,4 @@ class ImageUploader
         return $result;
     }
 }
+

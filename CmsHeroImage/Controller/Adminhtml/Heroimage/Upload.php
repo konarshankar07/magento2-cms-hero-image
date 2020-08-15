@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace Shankar\CmsHeroImage\Controller\Adminhtml\Heroimage;
 
 use Magento\Backend\App\Action;
@@ -10,6 +11,9 @@ use Shankar\CmsHeroImage\Model\ImageUploader;
 
 class Upload extends Action implements HttpPostActionInterface
 {
+
+    const ADMIN_RESOURCE = 'Shankar_CmsHeroImage::Heroimage';
+
     /**
      * Image uploader
      *
@@ -29,10 +33,6 @@ class Upload extends Action implements HttpPostActionInterface
         $this->imageUploader = $imageUploader;
     }
 
-    protected function _isAllowed()
-    {
-        return $this->_authorization->isAllowed('Shankar_CmsHeroImage::Heroimage');
-    }
     /**
      * Upload file controller action
      *
