@@ -285,4 +285,3 @@ class ImageUploader
         return $result;
     }
 }
-

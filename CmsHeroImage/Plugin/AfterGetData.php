@@ -44,6 +44,7 @@ class AfterGetData
                 unset($individual['cms_hero_image']);
                 $stat = $this->getFileInfo()->getStat($image_name);
                 $mime = $this->getFileInfo()->getMimeType($image_name);
+                // phpcs:ignore Magento2.Functions.DiscouragedFunction
                 $heroImageWrapper[$individual['page_id']]['cms_hero_image'][0]['name'] = basename($image_name);
                 if ($this->getFileInfo()->isBeginsWithMediaDirectoryPath($image_name)) {
                     $heroImageWrapper[$individual['page_id']]['cms_hero_image'][0]['url'] = $image_name;

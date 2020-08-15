@@ -45,6 +45,7 @@ class BeforeSave
         if ($this->isTmpFileAvailable($cmsHeroImage) && $imageName = $this->getUploadedImageName($cmsHeroImage)) {
             $imageName = $cmsHeroImage[0]['name'];
         } elseif ($this->fileResidesOutsideCategoryDir($cmsHeroImage)) {
+            // phpcs:ignore Magento2.Functions.DiscouragedFunction
             $value[0]['url'] = parse_url($cmsHeroImage[0]['url'], PHP_URL_PATH);
             $imageName = $value[0]['url'];
         }
@@ -122,5 +123,4 @@ class BeforeSave
 
         return strpos($fileUrl, $baseMediaDir) !== false;
     }
-
 }
