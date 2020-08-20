@@ -62,7 +62,7 @@ class FileInfo
      *
      * @return WriteInterface
      */
-    private function getMediaDirectory()
+    private function getMediaDirectory(): WriteInterface
     {
         if ($this->mediaDirectory === null) {
             $this->mediaDirectory = $this->filesystem->getDirectoryWrite(DirectoryList::MEDIA);
@@ -75,7 +75,7 @@ class FileInfo
      *
      * @return ReadInterface
      */
-    private function getBaseDirectory()
+    private function getBaseDirectory(): ReadInterface
     {
         if (!isset($this->baseDirectory)) {
             $this->baseDirectory = $this->filesystem->getDirectoryRead(DirectoryList::ROOT);
@@ -89,7 +89,7 @@ class FileInfo
      *
      * @return ReadInterface
      */
-    private function getPubDirectory()
+    private function getPubDirectory(): ReadInterface
     {
         if (!isset($this->pubDirectory)) {
             $this->pubDirectory = $this->filesystem->getDirectoryRead(DirectoryList::PUB);
@@ -104,7 +104,7 @@ class FileInfo
      * @param string $fileName
      * @return string
      */
-    public function getMimeType($fileName)
+    public function getMimeType(string $fileName): string
     {
         $filePath = $this->getFilePath($fileName);
         $absoluteFilePath = $this->getMediaDirectory()->getAbsolutePath($filePath);
@@ -118,7 +118,7 @@ class FileInfo
      * @param string $fileName
      * @return array
      */
-    public function getStat($fileName)
+    public function getStat(string $fileName): array
     {
         $filePath = $this->getFilePath($fileName);
 
@@ -131,7 +131,7 @@ class FileInfo
      * @param string $fileName
      * @return bool
      */
-    public function isExist($fileName)
+    public function isExist(string $fileName): bool
     {
         $filePath = $this->getFilePath($fileName);
 
@@ -144,7 +144,7 @@ class FileInfo
      * @param string $fileName
      * @return string
      */
-    private function getFilePath($fileName)
+    private function getFilePath(string $fileName): string
     {
         $filePath = $this->removeStorePath($fileName);
         $filePath = ltrim($filePath, '/');
@@ -170,7 +170,7 @@ class FileInfo
      * @param string $fileName
      * @return bool
      */
-    public function isBeginsWithMediaDirectoryPath($fileName)
+    public function isBeginsWithMediaDirectoryPath(string $fileName): bool
     {
         $filePath = $this->removeStorePath($fileName);
         $filePath = ltrim($filePath, '/');
@@ -210,7 +210,7 @@ class FileInfo
      * @param string $filePath
      * @return string
      */
-    private function getMediaDirectoryPathRelativeToBaseDirectoryPath(string $filePath = '')
+    private function getMediaDirectoryPathRelativeToBaseDirectoryPath(string $filePath = ''): string
     {
         $baseDirectory = $this->getBaseDirectory();
         $baseDirectoryPath = $baseDirectory->getAbsolutePath();

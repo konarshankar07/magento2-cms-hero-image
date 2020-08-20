@@ -31,7 +31,13 @@ class AfterGetData
         $this->storeManager = $storeManager;
     }
 
-    public function afterGetData(DataProvider $subject, $result): array
+    /**
+     * @param DataProvider $subject
+     * @param array|null $result
+     * @return array
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     */
+    public function afterGetData(DataProvider $subject, ?array $result): array
     {
         $heroImageWrapper = [];
         if (!$result) {

@@ -80,7 +80,7 @@ class BeforeSave
      * @param array $value
      * @return bool
      */
-    private function isTmpFileAvailable($value)
+    private function isTmpFileAvailable(array $value)
     {
         return is_array($value) && isset($value[0]['tmp_name']);
     }
@@ -93,7 +93,7 @@ class BeforeSave
      * @param array $value Attribute value
      * @return string
      */
-    private function getUploadedImageName($value)
+    private function getUploadedImageName(array $value)
     {
         if (is_array($value) && isset($value[0]['name'])) {
             return $value[0]['name'];
@@ -108,7 +108,7 @@ class BeforeSave
      * @param array|null $value
      * @return bool
      */
-    private function fileResidesOutsideCategoryDir($value)
+    private function fileResidesOutsideCategoryDir(?array $value): bool
     {
         if (!is_array($value) || !isset($value[0]['url'])) {
             return false;
