@@ -17,7 +17,7 @@ using image uploader from the **Content -> Pages -> Add/Edit page**.
 
 `mkdir ext`
 
-3.Clone the adobe-stock-integration repository into the appropriate directory inside ext:
+3.Clone the cms-hero-image repository into the appropriate directory inside ext:
 
 `git clone https://github.com/konarshankar07/magento2-cms-hero-image.git ext/shankar/cms-hero-image`
 
